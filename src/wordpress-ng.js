@@ -1,4 +1,4 @@
-angular.module('wordpress-ng', []).factory('WordPressNg', ['$http', '$q', '$sce', function($http, $q, $sce) {
+angular.module('wordpress-ng', []).factory('WordPressNg', ['$http', '$q', function($http, $q) {
     $http.defaults.useXDomain = true;
 
     return {
@@ -12,7 +12,6 @@ angular.module('wordpress-ng', []).factory('WordPressNg', ['$http', '$q', '$sce'
          */
         postOptions: {
             createTextField: true, // creates a text version of the content
-            trustContent: true // explicitly trusts the excerpt + content fields in the wordpress response
         },
 
         /**
@@ -122,13 +121,6 @@ angular.module('wordpress-ng', []).factory('WordPressNg', ['$http', '$q', '$sce'
             // create a text version of the post content
             if(this.postOptions.createTextField) {
                 post.text = this._stripTags(post.content);
-            }
-
-            // trust wordpress html
-            if(this.postOptions.trustContent) {
-                $sce.trustAsHtml(post.title);
-                $sce.trustAsHtml(post.excerpt);
-                $sce.trustAsHtml(post.content);
             }
 
             //todo create a way to register preparation tasks
