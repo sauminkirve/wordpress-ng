@@ -7,9 +7,9 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'HomeController'
         })
         // blog page
-        .when('/blog', {
-            templateUrl: 'app/modules/blog/blog.html',
-            controller: 'BlogController'
+        .when('/page/:slug', {
+            templateUrl: 'app/modules/page/page.html',
+            controller: 'PageController'
         });
 
     $locationProvider.html5Mode(true);

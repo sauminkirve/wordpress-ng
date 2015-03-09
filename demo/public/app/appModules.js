@@ -7,5 +7,5 @@ angular.module('app', [
 
     // site modules
     'home',
-    'blog',
+    'page',
 ]);
