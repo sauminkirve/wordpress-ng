@@ -4,7 +4,7 @@
   "dependencies": {
     "angular": "~1.x"
   },
-  "homepage": "https://github.com/forrestLyman/wordpressng",
+  "homepage": "https://github.com/forrestLyman/wordpress-ng",
   "authors": [
     "Forrest Lyman <me@forrestlyman.com>"
   ],
