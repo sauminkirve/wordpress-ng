@@ -1,5 +1,7 @@
+// home page
 angular.module('home',[]).controller('HomeController', ['$scope', 'WordPressNg',
     function($scope, WordPress) {
+        // instantiate the current page and posts collection
         $scope.page = false;
         $scope.posts = false;
 
@@ -8,13 +10,12 @@ angular.module('home',[]).controller('HomeController', ['$scope', 'WordPressNg',
             $scope.page = post;
         });
 
-        // find all of the posts that are tagged 'park'
+        // find all of the posts that are tagged 'parks'
         var params = {
             tags: ["parks"]
         };
 
         WordPress.posts('wordpressngdemo.wordpress.com', params).then(function(posts){
-            console.log(posts);
             $scope.posts = posts;
         });
 }]);
