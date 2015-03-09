@@ -61,6 +61,21 @@ The demo site has an example of using the findBySlug() method dynamically.
         });
     }]);
 
+## Rendering Content
+
+Angular very strictly enforces its secure by default approach to dynamic content, but you should be able to trust the WordPress generated content.
+
+It's important to use the `ng-bind-html` directive to output the content since it handles un-escaping the content for you.
+For example, this HTML snippet renders the page that the controller above loaded.
+
+    <ol class="breadcrumb">
+        <li><a href="/">WordPressNG Demo Site</a></li>
+        <li class="active" ng-bind-html="post.title"></li>
+    </ol>
+    <img ng-src="{{post.featured_image}}" class="img-responsive" />
+    <h1 ng-bind-html="post.title"></h1>
+    <div ng-bind-html="post.content"></div>
+
 ## Debugging
 
 Debugging can be an inevitable part of integrating data. You can turn the debug flag to true for each of these methods.
