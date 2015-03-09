@@ -1,0 +1,12 @@
+{
+  "name": "WordPressNg Demo",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "latest",
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-sanitize": "latest",
+    "angular-bootstrap": "latest",
+    "wordpress-ng": "latest"
+  }
+}

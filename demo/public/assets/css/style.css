@@ -1,0 +1,9 @@
+body {
+    padding-top: 65px;
+}
+
+.post{
+    border-top: #ccc 1px solid;
+    padding-top:15px;
+    padding-bottom:15px;
+}
