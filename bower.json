@@ -1,0 +1,25 @@
+{
+  "name": "wordpress-ng",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "~1.x"
+  },
+  "homepage": "https://github.com/forrestLyman/wordpressng",
+  "authors": [
+    "Forrest Lyman <me@forrestlyman.com>"
+  ],
+  "description": "AngularJS client for the public wordpress.com REST API",
+  "main": "src/wordpress-ng.js",
+  "keywords": [
+    "wordpress",
+    "angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
