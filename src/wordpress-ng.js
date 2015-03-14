@@ -11,7 +11,7 @@ angular.module('wordpress-ng', []).factory('WordPressNg', ['$http', '$q', functi
          * Post preparation options
          */
         postOptions: {
-            createTextField: true, // creates a text version of the content
+            createTextField: true // creates a text version of the content
         },
 
         /**
@@ -33,7 +33,7 @@ angular.module('wordpress-ng', []).factory('WordPressNg', ['$http', '$q', functi
          */
         indexPages: function(blog) {
             var wp = this;
-            var key = this.indexKey(blog);
+            var key = wp.indexKey(blog);
             wp.pageIndex[key] = [];
 
             return $q(function(resolve, reject) {
@@ -54,9 +54,17 @@ angular.module('wordpress-ng', []).factory('WordPressNg', ['$http', '$q', functi
          */
         findIndexedPage: function(blog, slug) {
             var key = this.indexKey(blog);
-            console.log(this.pageIndex[key]);
-            console.log(slug);
             return this.pageIndex[key][slug];
+        },
+
+        /**
+         * Creates the index key
+         *
+         * @param blog
+         * @returns {*}
+         */
+        indexKey: function(string) {
+            return string.replace(/\./g,'_');
         },
 
         /**
