@@ -101,6 +101,14 @@ You can filter your posts by tag using the wp_tag filter.
         <!-- do something with the post -->
     </div>
 
+## SEO
+
+I recommend blocking search engines from indexing your WordPress blog since you most likely want the traffic on your angular site.
+
+1. Log into https://wordpress.com/settings/general/{{your domain}}
+2. Select 'Discourage search engines from indexing this site' in the 'Site Visibility' section.
+
+
 ## Debugging
 
 Debugging can be an inevitable part of integrating data. You can turn the debug flag to true for each of these methods.
