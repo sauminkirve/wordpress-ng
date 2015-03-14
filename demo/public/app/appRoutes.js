@@ -11,7 +11,9 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             templateUrl: 'app/modules/page/page.html',
             controller: 'PageController'
         });
-
-    $locationProvider.html5Mode(true);
+    
+    $locationProvider
+        .html5Mode(false)
+        .hashPrefix('!');
 
 }]);
