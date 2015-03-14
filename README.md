@@ -1,7 +1,8 @@
 # WordPress-NG
 
-This project is an AngularJS module that contains a collection of services, filters, and directives for publishing
+WordPress-NG is an AngularJS module that contains a collection of services, filters, and directives for publishing
 WordPress.com blog content in AngularJS apps.
+
 
 ## Installation
 
