@@ -20,6 +20,46 @@ angular.module('wordpress-ng', []).factory('WordPressNg', ['$http', '$q', functi
         cacheEnabled: true,
 
         /**
+         * slug -> page index
+         */
+        pageIndex: [],
+
+        /**
+         * Loads all of the pages and indexes them
+         *
+         * This approach improves performance for smaller single page sites compared to using many individual requests
+         *
+         * @param blog
+         */
+        indexPages: function(blog) {
+            var wp = this;
+            var key = this.indexKey(blog);
+            wp.pageIndex[key] = [];
+
+            return $q(function(resolve, reject) {
+                wp.posts(blog, {type: 'page', number:100}).then(function(posts){
+                    angular.forEach(posts, function(post){
+                        wp.pageIndex[key][post.slug] = post;
+                    });
+                    resolve(wp.pageIndex[key]);
+                });
+            });
+        },
+
+        /**
+         * Find a page from the page index
+         *
+         * @param blog
+         * @param slug
+         */
+        findIndexedPage: function(blog, slug) {
+            var key = this.indexKey(blog);
+            console.log(this.pageIndex[key]);
+            console.log(slug);
+            return this.pageIndex[key][slug];
+        },
+
+        /**
          * List the posts from a blog
          *
          * This method returns a promise, resolving an array of posts once wordpress.com returns them

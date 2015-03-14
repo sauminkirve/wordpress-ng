@@ -61,6 +61,19 @@ The demo site has an example of using the findBySlug() method dynamically.
         });
     }]);
 
+## Content Indexes
+
+The content index loads all of the site pages (not posts) into an index, allowing you to retrieve them by slug.
+This can give big performance improvements for single page sites vs multiple requests but standard Angular sites
+that use routing might do better dynamically loading just the content requested. It depends on the use and
+I would really appreciate some feedback with your experiences.
+
+    // first build the index
+    WordPressNg.indexPages('wordpressngdemo.wordpress.com').then(function(){
+        // now fetch the item
+        $scope.page = WordPressNg.findIndexedPage('wordpressngdemo.wordpress.com');
+    });
+
 ## Rendering Content
 
 Angular very strictly enforces its secure by default approach to dynamic content, but you should be able to trust the WordPress generated content.
@@ -75,6 +88,7 @@ For example, this HTML snippet renders the page that the controller above loaded
     <img ng-src="{{post.featured_image}}" class="img-responsive" />
     <h1 ng-bind-html="post.title"></h1>
     <div ng-bind-html="post.content"></div>
+
 
 ## Debugging
 
