@@ -1,6 +1,7 @@
 # WordPress-NG
 
-This project is an AngularJS service that integrates AngularJS projects with the public WordPress.com REST API.
+This project is an AngularJS module that contains a collection of services, filters, and directives for publishing
+WordPress.com blog content in AngularJS apps.
 
 ## Installation
 
