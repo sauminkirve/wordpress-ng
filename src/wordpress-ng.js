@@ -178,4 +178,29 @@ angular.module('wordpress-ng', []).factory('WordPressNg', ['$http', '$q', functi
             return input.replace(/(<([^>]+)>)/ig,"");
         }
     }
-}]);
+}])
+/**
+ * Filters posts by tag
+ *
+ * @param posts collection of posts
+ * @param tag
+ * @param limit (optional) defaults to 20
+ *
+ * @example <div ng-repeat="post in posts | hasTag:'featured':4><!-- do something with the post --></div>"
+ *
+ */
+.filter('wp_tag', function () {
+    return function (posts, tag, limit) {
+        if(! posts) return false;
+        if(! limit) limit = 20;
+        var filtered = [];
+        angular.forEach(posts, function(post){
+            if(filtered.length < limit) {
+                if (post.tags.hasOwnProperty(tag)) {
+                    filtered.push(post);
+                }
+            }
+        });
+        return filtered;
+    };
+});

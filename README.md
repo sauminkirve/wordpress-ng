@@ -89,6 +89,17 @@ For example, this HTML snippet renders the page that the controller above loaded
     <h1 ng-bind-html="post.title"></h1>
     <div ng-bind-html="post.content"></div>
 
+## Filters
+
+I am in the process of including a number of content filters to make rendering WordPress content easier.
+
+### Tags
+
+You can filter your posts by tag using the wp_tag filter.
+
+    <div ng-repeat="post in posts | hasTag:'featured':4>
+        <!-- do something with the post -->
+    </div>
 
 ## Debugging
 
